@@ -3,7 +3,7 @@ const patienteModel = require("../models/patienteModel")
 const addPatiente = async(req, res) => {
     const newPatiente = req.body
 
-    if(!(newPatiente.nombre && newPatiente.sexo && newPatiente.fechaNac && newPatiente.ciudadOrigen && newPatiente.hospitalOrigen_fk && newPatiente.nombreTutor && newPatiente.telefonoTutor && newPatiente.hospitalDestino_fk)){
+    if(!(newPatiente.nombre && newPatiente.edad && newPatiente.sexo && newPatiente.fechaNac && newPatiente.ciudadOrigen_fk && newPatiente.hospitalOrigen_fk && newPatiente.nombreTutor && newPatiente.telefonoTutor)){
         return res.status(401).json({status: 401, mensaje: "Todos los campos son obligatorios"});
     }
 
