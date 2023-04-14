@@ -12,14 +12,13 @@ exports.addPatiente = async (newPatiente) => {
 };
 
 
-exports.update = async (id, updatedUser) => {
-  const { name, email } = updatedUser;
-  const [result] = await db.query('UPDATE users SET name = ?, email = ? WHERE id = ?', [name, email, id]);
-  return result.affectedRows > 0;
+exports.update = async (id,editPatiente) => {
+  const [result] = await db.query('UPDATE Paciente SET ? WHERE id = ?', [editPatiente, id]);
+  return result//result.affectedRows > 0;
 };
 
 
 exports.delete = async (id) => {
-  const [result] = await db.query('DELETE FROM users WHERE id = ?', [id]);
-  return result.affectedRows > 0;
+  const [result] = await db.query('DELETE FROM Paciente WHERE id = ?', [id]);
+  return result;
 };
