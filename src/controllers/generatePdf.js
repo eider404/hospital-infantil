@@ -14,7 +14,7 @@ const generatePdf = async(req, res) => {
         subtitle: element.id.toString(),
         headers: ["edad", "sexo", "fecha Nacimiento", "Ciudad", "CP de la Ciudad", "Fecha Inscripcion", "Hospital de origen","Direccion del hospital" , "Tutor", "Telefono"],
         rows: [
-          [ element.edad, element.sexo, element.fechaNac.toString().slice(0,15), element.ciudadOrigen_fk,element.cp,element.fechaInscripcion.toString().slice(0,15), element.hospitalOrigen_fk, element.direccion,element.nombreTutor,element.telefonoTutor],
+          [ element.edad, element.sexo, element.fechaNac.toString().slice(0,15), element.nombreCiudad, element.cpCiudad, element.fechaInscripcion.toString().slice(0,15), element.nombreHospital, element.direccionHospital,element.nombreTutor,element.telefonoTutor],
         ],
         
       };
