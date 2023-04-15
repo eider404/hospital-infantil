@@ -1,7 +1,7 @@
 const db = require('../db');
 
 exports.getAll = async () => {
-  const [rows, fields] = await db.query('SELECT * FROM Paciente');
+  const [rows, fields] = await db.query('SELECT * FROM Hospital INNER JOIN Paciente ON Hospital.idHospital = Paciente.ciudadOrigen_fk INNER JOIN Ciudad ON Paciente.ciudadOrigen_fk = Ciudad.idCiudad');
   return rows;
 };
 
