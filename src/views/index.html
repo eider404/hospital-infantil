@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body style="background-color: rgb(235, 235, 235);">
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <h1 class="navbar-brand" href="#">Hospital Infantil</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto" style="text-align: center; margin-right: 50px;">
+            <li class="nav-item">
+                <a href="#" class="btn btn-danger" style="margin: 15px">GENERAR PDF</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+      
+
+    <div class="container" style="background-color: rgb(255, 255, 255);">
+      <h1>Lista de elementos</h1>
+
+      <div class="row">
+        <div class="col-8">
+            <ul id="listaPaciente">
+
+                    <!-- <div class="card w-75 mb-3" style="box-shadow: 7px 5px 5px rgb(214, 214, 214);">
+                        <div class="card-body">
+                          <h5 class="card-title">Nombre: <%= data[i].nombre %></h5>
+                          <p class="card-text">ID: <%= data[i].id %></p>
+                          <p class="card-text">Tutor: <%= data[i].nombreTutor %></p>
+                          <p class="card-text">Hospital de Origen: <%= data[i].nombreHospital %></p>
+                          <a href="/<%= data[i].id %>" class="btn btn-primary">Mas...</a>
+                          <a onclick="Eliminar('<%= data[i].id %>')" class="btn btn-danger">Eliminar</a>
+                        </div>
+                    </div> -->
+                
+            </ul>
+        </div>
+
+        <div class="col-4">
+          Column
+        </div>
+      </div>
+    </div>
+
+
+
+    <script src="./index.js"></script>
+    <script>
+      getAllPatiente();
+    </script>
+  </body>
+</html>

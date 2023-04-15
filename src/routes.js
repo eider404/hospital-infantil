@@ -7,6 +7,11 @@ const editPatiente = require('./controllers/editPatiente')
 const deletePatiente = require('./controllers/deletePatiente')
 const generatePdf = require('./controllers/generatePdf')
 
+//http://localhost:3000/paciente?id=17
+routes.get('/paciente?:id', (req, res) => {
+    res.status(200).json({status: 200, dato: req.query.id, mesage: 'paso'});
+});
+
 routes.route('/add-patiente')
     .post(addPatiente);
 
