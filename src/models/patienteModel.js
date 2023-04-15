@@ -5,6 +5,11 @@ exports.getAll = async () => {
   return rows;
 };
 
+exports.getPatiente = async (id) => {
+  const [rows, fields] = await db.query('SELECT * FROM Paciente WHERE id = ?', [id]);
+  return rows;
+};
+
 
 exports.addPatiente = async (newPatiente) => {
   const [result] = await db.query('INSERT INTO Paciente set ?', [newPatiente]);

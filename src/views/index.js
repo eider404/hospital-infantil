@@ -35,7 +35,7 @@ function generarLista (data){
 
 
 function PacienteInfo(query){
-    fetch( `http://localhost:3000/paciente${query}`, {
+    fetch( `http://localhost:3000/getPaciente${query}`, {
             method: 'GET',
     })
     .then(res => res.json())
