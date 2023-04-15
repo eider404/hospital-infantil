@@ -4,9 +4,7 @@ const app = express();
 const routes = require('./routes');
 
 
-// EJS
-app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
+
 
 
 app.use(express.json());
