@@ -160,3 +160,42 @@ function GenerarPDF(){
             console.error('Error al descargar el archivo:', error);
         });
 }
+
+
+function ActualizarPaciente(query){
+    let actualizarForm = document.querySelector( '#form-actualizar' )
+    const obj = {id: query.slice(4,6)}
+    new FormData( actualizarForm ).forEach( ( value, key ) => {
+        if(value){
+            obj[ key ] = value 
+        }
+    })
+    fetch( `http://localhost:3000/edit-patiente`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify( obj )
+            })
+            .then(res => res.json())
+            .then( data =>{
+                console.log(data)
+                if(data.status == 401){
+                    return document.querySelector("#messageActualizar").innerHTML= `
+                        <div class="alert alert-danger" role="alert">
+                        ${data.mensaje}
+                        </div>
+                    `;
+                }
+
+                document.querySelector("#messageActualizar").innerHTML= `
+                <div class="alert alert-primary" role="alert">
+                  ${data.mensaje}
+                </div>
+                `; 
+                PacienteInfo(query)
+                //getAllPatiente()
+                
+            })
+            .catch(err => console.log(err));
+}
