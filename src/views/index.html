@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto" style="text-align: center; margin-right: 50px;">
             <li class="nav-item">
-                <a href="#" class="btn btn-danger" style="margin: 15px">GENERAR PDF</a>
+                <a onclick="GenerarPDF()" href="#" class="btn btn-danger" style="margin: 15px">GENERAR PDF</a>
             </li>
           </ul>
         </div>
@@ -26,28 +26,77 @@
       
 
     <div class="container" style="background-color: rgb(255, 255, 255);">
-      <h1 id="nombrePatiente" style="padding: 15px 0px 15px 40px">Pacientes</h1>
+      <h1 id="nombrePatiente" style="padding: 15px 0px 15px 40px">Lista De Pacientes</h1>
 
       <div class="row">
-        <div class="col-8">
+        <div class="col-7">
             <ul id="listaPaciente">
 
-                    <!-- <div class="card w-75 mb-3" style="box-shadow: 7px 5px 5px rgb(214, 214, 214);">
-                        <div class="card-body">
-                          <h5 class="card-title">Nombre: <%= data[i].nombre %></h5>
-                          <p class="card-text">ID: <%= data[i].id %></p>
-                          <p class="card-text">Tutor: <%= data[i].nombreTutor %></p>
-                          <p class="card-text">Hospital de Origen: <%= data[i].nombreHospital %></p>
-                          <a href="/<%= data[i].id %>" class="btn btn-primary">Mas...</a>
-                          <a onclick="Eliminar('<%= data[i].id %>')" class="btn btn-danger">Eliminar</a>
-                        </div>
-                    </div> -->
                 
             </ul>
         </div>
 
-        <div class="col-4">
-          Column
+        <div class="col-5">
+          <div style="border-radius: 15px; border: 1px solid rgb(222, 222, 222); background-color: aliceblue;">
+            <form style="margin: 15px;" id="form-agregar">
+              <h2>Agregar Nuevo Paciente</h2>
+              <div class="form-group">
+                <label for="nombreCompleto">Nombre completo:</label>
+                <input type="text" class="form-control" id="nombreCompleto" name="nombre">
+              </div>
+              <div class="form-group">
+                <label for="edad">Edad:</label>
+                <input type="number" class="form-control" id="edad" name="edad">
+              </div>
+              <div class="form-group">
+                <label for="sexo">Sexo:</label>
+                <select class="form-control" id="sexo" name="sexo">
+                  <option value="M">Masculino</option>
+                  <option value="F">Femenino</option>
+                  <option value="-">Otro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="fechaNacimiento">Fecha de nacimiento:</label>
+                <input type="date" class="form-control" id="fechaNacimiento" name="fechaNac">
+              </div>
+              <div class="form-group">
+                <label for="ciudadOrigen">Ciudad de origen:</label>
+                <select class="form-control" id="sexo" name="ciudadOrigen_fk">
+                  <option value="1">Mérida</option>
+                  <option value="2">Valladolid</option>
+                  <option value="3">Progreso</option>
+                  <option value="4">Tizimín</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="hospitalOrigen">Hospital de origen:</label>
+                <select class="form-control" id="sexo" name="hospitalOrigen_fk">
+                  <option value="1">Hospital Regional</option>
+                  <option value="2">Children's H. Merida</option>
+                  <option value="3">Centro comunitario Infantil</option>
+                  <option value="4">Hospital Regional Mérida</option>
+                  <option value="5">Hospitales Y Quirofanos Del Sureste</option>
+                  <option value="6">Hospital Faro del Mayab Grupo Christus Muguerza</option>
+                  <option value="7">Clinica Mexico</option>
+                  <option value="8">CAMED CUPULES</option>
+                  <option value="9">Hospital de linda vista</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="nombreTutor">Nombre del tutor:</label>
+                <input type="text" class="form-control" id="nombreTutor" name="nombreTutor">
+              </div>
+              <div class="form-group">
+                <label for="telefonoTutor">Teléfono del tutor:</label>
+                <input type="tel" class="form-control" id="telefonoTutor" name="telefonoTutor">
+              </div>
+              <div id="messageRegister"></div>
+              <button onclick="AgregarPaciente()" type="button" class="btn btn-primary">Agregar</button>
+              
+            </form>
+          </div>
+          
         </div>
       </div>
     </div>

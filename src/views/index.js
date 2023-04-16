@@ -17,8 +17,9 @@ function generarLista (data){
     document.querySelector("#listaPaciente").innerHTML= '';
 
     for(let valor of data){
+        
         document.querySelector("#listaPaciente").innerHTML += `
-            <div class="card w-75 mb-3" style="box-shadow: 7px 5px 5px rgb(214, 214, 214);">
+            <div class="card mb-3" style="box-shadow: 7px 5px 5px rgb(214, 214, 214);">
                 <div class="card-body">
                     <h5 class="card-title">Nombre: ${valor.nombre}</h5>
                     <p class="card-text">ID: ${valor.id}</p>
@@ -28,7 +29,7 @@ function generarLista (data){
                     <a onclick="Eliminar(${valor.id})" class="btn btn-danger">Eliminar</a>
                 </div>
             </div>   
-        `
+        ` 
     }
 }
 
@@ -91,4 +92,71 @@ function generarPacieneteInfo(data){
             <strong>Teléfono del tutor:</strong> ${data[0].telefonoTutor}
         </li>   
     `
+}
+
+
+function AgregarPaciente(){
+    let registerForm = document.querySelector( '#form-agregar' )
+    const obj = {}
+    new FormData( registerForm ).forEach( ( value, key ) => obj[ key ] = value )
+    fetch( `http://localhost:3000/add-patiente`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify( obj )
+            })
+            .then(res => res.json())
+            .then( data =>{
+                if(data.status == 401){
+                    return document.querySelector("#messageRegister").innerHTML= `
+                        <div class="alert alert-danger" role="alert">
+                        ${data.mensaje}
+                        </div>
+                    `;
+                }
+
+                document.querySelector("#messageRegister").innerHTML= `
+                <div class="alert alert-primary" role="alert">
+                  ${data.mensaje}
+                </div>
+                `; 
+
+                getAllPatiente()
+                
+            })
+            .catch(err => console.log(err));
+}
+
+
+
+
+function Eliminar(id){
+    fetch( `http://localhost:3000/delete-patiente/${id}`, {
+                method: 'DELETE',
+            })
+            .then(res => res.json())
+            .then( data =>{
+                getAllPatiente()      
+            })
+            .catch(err => console.log(err));
+}
+
+
+function GenerarPDF(){
+    fetch('http://localhost:3000/generate-pdf')
+        .then(response => response.blob())
+        .then(blob => {
+            // crea un enlace temporal para descargar el archivo
+            const url = window.URL.createObjectURL(new Blob([blob]));
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Lista-Pacientes.pdf';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+        })
+        .catch(error => {
+            console.error('Error al descargar el archivo:', error);
+        });
 }
