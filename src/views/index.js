@@ -5,6 +5,13 @@ function getAllPatiente(){
     .then(res => res.json())
     .then( data =>{
         if(data.status == 200){
+            if(data.data.length == 0){
+                return document.querySelector("#listaPaciente").innerHTML= `
+                    <div style="text-align: center; padding: 40px">
+                        <h5>¡Aun no tienes pacientes!</h5>
+                    </div>
+                `;
+            }
             generarLista(data.data);
         }else{
             console.log('Algo salio mal')
@@ -21,10 +28,10 @@ function generarLista (data){
         document.querySelector("#listaPaciente").innerHTML += `
             <div class="card mb-3" style="box-shadow: 7px 5px 5px rgb(214, 214, 214);">
                 <div class="card-body">
-                    <h5 class="card-title">Nombre: ${valor.nombre}</h5>
-                    <p class="card-text">ID: ${valor.id}</p>
-                    <p class="card-text">Tutor: ${valor.nombreTutor}</p>
-                    <p class="card-text">Hospital de Origen: ${valor.nombreHospital}</p>
+                    <p class="card-title"><strong>Nombre:</strong> ${valor.nombre}</p>
+                    <p class="card-text"><strong>ID:</strong> ${valor.id}</p>
+                    <p class="card-text"><strong>Tutor:</strong> ${valor.nombreTutor}</p>
+                    <p class="card-text"><strong>Hospital de Origen:</strong> ${valor.nombreHospital}</p>
                     <a href="/paciente.html?id=${valor.id}" class="btn btn-primary">Mas...</a>
                     <a onclick="Eliminar(${valor.id})" class="btn btn-danger">Eliminar</a>
                 </div>
