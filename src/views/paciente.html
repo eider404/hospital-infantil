@@ -1,55 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paciente</title>
+<html>
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
-</head>
-<body>
+  </head>
+  <body style="background-color: rgb(235, 235, 235);">
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <h1 class="navbar-brand" href="#">Hospital Infantil</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto" style="text-align: center; margin-right: 50px;">
+            <li class="nav-item">
+                <a href="#" class="btn btn-danger" style="margin: 15px">GENERAR PDF</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+      
+
+    <div class="container" style="background-color: rgb(255, 255, 255);">
+      <h1 id="nombrePatiente" style="padding: 15px 0px 15px 40px"></h1>
+
+      <div class="row">
+        <div class="col-6">
+            <ul id="pacienteInfo">
+
+                
+            </ul>
+        </div>
+
+        <div class="col-4">
+          Column
+        </div>
+      </div>
+    </div>
 
     <script src="./index.js"></script>
     <script>
         PacienteInfo(window.location.search)
-        //console.log(window.location.search)
     </script>
-
-
-<!--     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Título de la página</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </nav>
-
-    <br>
-    <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h1>Información de la persona</h1>
-            <ul class="list-group">
-              <li class="list-group-item">
-                <strong>Nombre:</strong> Juan Pérez
-              </li>
-              <li class="list-group-item">
-                <strong>Edad:</strong> 35 años
-              </li>
-              <li class="list-group-item">
-                <strong>Correo electrónico:</strong> juan.perez@gmail.com
-              </li>
-              <li class="list-group-item">
-                <strong>Teléfono:</strong> 555-1234
-              </li>
-              <li class="list-group-item">
-                <strong>Dirección:</strong> Av. Siempreviva 123, Col. Centro, CDMX
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div> -->
       
 </body>
 </html>

@@ -41,7 +41,7 @@ function PacienteInfo(query){
     .then(res => res.json())
     .then( data =>{
         if(data.status == 200){
-            console.log(data);
+            generarPacieneteInfo(data.data);
         }else{
             console.log('Algo salio mal')
         }
@@ -49,3 +49,46 @@ function PacienteInfo(query){
     .catch(err => console.log(err));
 }
 
+function generarPacieneteInfo(data){
+    document.querySelector("#pacienteInfo").innerHTML= '';
+    document.querySelector("#nombrePatiente").innerHTML= `Datos de ${data[0].nombre}`;
+
+    document.querySelector("#pacienteInfo").innerHTML = `
+        <li class="list-group-item">
+            <strong>ID:</strong> ${data[0].id}
+        </li>
+        <li class="list-group-item">
+            <strong>Edad:</strong> ${data[0].edad}
+        </li>
+        <li class="list-group-item">
+            <strong>Sexo:</strong> ${data[0].sexo}
+        </li>
+        <li class="list-group-item">
+            <strong>Fecha de nacimiento:</strong> ${data[0].fechaNac.slice(0,10)}
+        </li>
+        <li class="list-group-item">
+            <strong>Ciudad de origen:</strong> ${data[0].nombreCiudad}
+        </li>
+        <li class="list-group-item">
+            <strong>Estado de la ciudad:</strong> ${data[0].estadoCiudad}
+        </li>
+        <li class="list-group-item">
+            <strong>CP:</strong> ${data[0].cpCiudad}
+        </li>
+        <li class="list-group-item">
+            <strong>Fecha de inscripción:</strong> ${data[0].fechaInscripcion}
+        </li> 
+        <li class="list-group-item">
+            <strong>Hospital de origen:</strong> ${data[0].nombreHospital}
+        </li> 
+        <li class="list-group-item">
+            <strong>Direccion del Hospital:</strong> ${data[0].direccionHospital}
+        </li> 
+        <li class="list-group-item">
+            <strong>Nombre del tutor:</strong> ${data[0].nombreTutor}
+        </li> 
+        <li class="list-group-item">
+            <strong>Teléfono del tutor:</strong> ${data[0].telefonoTutor}
+        </li>   
+    `
+}
