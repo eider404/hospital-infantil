@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap Example</title>
+    <title>Hospital Infantil</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto" style="text-align: center; margin-right: 50px;">
             <li class="nav-item">
-                <a onclick="GenerarPDF()" href="#" class="btn btn-danger" style="margin: 15px">GENERAR PDF</a>
+                <a onclick="GenerarPDF()" class="btn btn-danger" style="margin: 15px">GENERAR PDF</a>
             </li>
           </ul>
         </div>
@@ -95,7 +95,7 @@
               </div>
               <div class="form-group">
                 <label for="telefonoTutor">Teléfono del tutor:</label>
-                <input type="tel" class="form-control" id="telefonoTutor" name="telefonoTutor">
+                <input type="number" class="form-control" id="telefonoTutor" name="telefonoTutor">
               </div>
               <div id="messageActualizar"></div>
               <button onclick="ActualizarPaciente(window.location.search)" type="button" class="btn btn-success">Actualizar</button>
