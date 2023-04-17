@@ -38,7 +38,7 @@ SERVER RUNNING...
 ## Resultado 👾
 
 #### Modelo de la DB:
-![file](https://i.postimg.cc/SRXBQ3fZ/Captura-desde-2023-04-16-21-11-31.png)
+![file](https://i.ibb.co/1Qb1h0C/Captura-desde-2023-04-16-21-11-31.png)
 
 
 #### Video del funcionamiento:
