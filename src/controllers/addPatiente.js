@@ -12,7 +12,7 @@ const addPatiente = async(req, res) => {
 
 
     const result = await patienteModel.addPatiente(newPatiente);
-    res.status(200).json({status:200, data: result, input: newPatiente, mensaje:"Agragado"});
+    res.status(200).json({status:200, data: result, input: newPatiente, mensaje:"Agregado"});
 }
 
 
