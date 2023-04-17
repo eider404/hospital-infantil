@@ -40,6 +40,7 @@ SERVER RUNNING...
 #### Modelo de la DB:
 ![file](https://i.postimg.cc/SRXBQ3fZ/Captura-desde-2023-04-16-21-11-31.png)
 
+
 #### Video del funcionamiento:
 [![Alt text](https://techwiser.com/wp-content/uploads/2018/09/Screen-Shot-2018-09-06-at-3.18.28-PM.jpg)](https://youtu.be/lFvpr09H3kQ)
 
